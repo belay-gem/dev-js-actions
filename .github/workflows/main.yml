@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: belay-gem/dev-js-actions@v1
+      uses: belay-gem/dev-js-actions
       with:
         who-to-greet: 'Nate Solomon'
     # Use the output from the `hello` step
