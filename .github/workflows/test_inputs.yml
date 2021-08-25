@@ -20,3 +20,6 @@ jobs:
 
       - name: Print some text
         run: echo "$MESSAGE" # prints the environmental variable, MESSAGE
+
+      - name: Process it
+        run: npm run start # prints the environmental variable, MESSAGE
