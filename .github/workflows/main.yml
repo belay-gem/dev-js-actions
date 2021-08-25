@@ -4,16 +4,20 @@ jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     name: A job to say hello
+    env:
+        FIRST_NAME: ${{secrets.MY_SECRET_VALUES}}
     steps:
     - name: Hello world action step
       id: hello
       uses: belay-gem/dev-js-actions@main
       with:
         who-to-greet: 'Nate Solomon'
+      env:
+        DEPLOY_ENV: ${{secrets.MY_SECRET_VALUES}}
     # Use the output from the `hello` step
     - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      run: echo "The time was ${{env.DEPLOY_ENV}} - ${{ steps.hello.outputs.time }}"
     - name: print environment variables
       run: env
     - name: print specific envt variables
-      run: echo "${{secrets.MY_SECRET_VALUES}}"
+      run: echo "${env.FIRST_NAME} - ${env.DEPLOY_ENV}"
