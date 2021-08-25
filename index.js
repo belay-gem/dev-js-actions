@@ -9,9 +9,8 @@ try {
     console.log(`Hello ${nameToGreet}!`);
     const time = (new Date()).toTimeString();
     core.setOutput("time", time);
-    console.log("${{secrets.MY_SECRET_VALUES}}");
-    console.log(`${process.env.MESSAGE}`)
-    console.log(`${process.env.DEPLOY_ENV}`);
+    console.log(`${process.env.MESSAGE} - This is it`)
+    //console.log(`${process.env.DEPLOY_ENV}`);
     //console.log(topics);
     //console.log(tags)
     //console.log(`${github.event.inputs.tags }`)
