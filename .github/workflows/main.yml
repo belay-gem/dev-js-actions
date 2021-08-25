@@ -17,10 +17,3 @@ jobs:
       run: env MY_SECRET_VALUES
     - name: print specific envt variables
       run: echo "${{secrets.MY_SECRET_VALUES}}"
-    - name: Hello world action
-      with: # Set the secret as an input
-        super_secret: ${{ secrets.MY_SECRET_VALUES }}
-      env: # Or as an environment variable
-        super_secret: ${{ secrets.MY_SECRET_VALUES }}
-    - name: print secrets
-      run: echo "${{secrets.MY_SECRET_VALUES}} - ${{secrets.DEPLOY_ENV}}"
