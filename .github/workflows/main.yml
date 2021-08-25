@@ -17,9 +17,6 @@ jobs:
       run: env MY_SECRET_VALUES
     - name: print specific envt variables
       run: echo "${{secrets.MY_SECRET_VALUES}}"
-
-    steps:
-      uses: belay-gem/dev-js-actions@main
     - name: Hello world action
       with: # Set the secret as an input
         super_secret: ${{ secrets.MY_SECRET_VALUES }}
