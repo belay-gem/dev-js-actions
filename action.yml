@@ -1,6 +1,9 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
+  allowed_features:
+    description: 'Allowed Rust nightly features. Provide a comma-separated list. For example: asm,naked_functions,raw_ref_macros,ptr_offset_from'
+    required: true
   who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
@@ -11,3 +14,11 @@ outputs:
 runs:
   using: 'node12'
   main: 'index.js'
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        bash -c "env | sort"
+        echo -------------
+      shell: bash
+    - run: echo "::set-env name=INPUT_ALLOWED_FEATURES::${{ inputs.allowed_features }}"
