@@ -21,4 +21,4 @@ jobs:
     - name: print environment variables
       run: env
     - name: print specific envt variables
-      run: echo "${{env.FIRST_NAME}} - ${{secrets.DEPLOY_ENV}}"
+      run: echo "${{env.FIRST_NAME}} - ${{secrets.DEPLOY_ENV}} - ${{env.DEPLOY_ENV}}"
