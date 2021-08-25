@@ -9,7 +9,10 @@ try {
     console.log(`Hello ${nameToGreet}!`);
     const time = (new Date()).toTimeString();
     core.setOutput("time", time);
-    console.log(`${process.env.MESSAGE} - This is it`)
+    console.log(`${process.env.logLevel} - This is logLevel`)
+    console.log(`${process.env.tags} - This is tags`)
+    console.log(`${process.env.topics} - This is topics`)
+    console.log(`${process.env.kafka} - This is kafka`)
     //console.log(`${process.env.DEPLOY_ENV}`);
     //console.log(topics);
     //console.log(tags)

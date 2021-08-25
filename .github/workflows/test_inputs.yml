@@ -33,13 +33,17 @@ jobs:
         env:
           DEFAULT_MESSAGE: 'Periodically printing passages' # here is the default message
         run: |
-          echo "MESSAGE=${{ github.event.inputs.logLevel || env.DEFAULT_MESSAGE }}" >> $GITHUB_ENV
-          echo "MESSAGE=${{ github.event.inputs.tags || env.DEFAULT_MESSAGE }}" >> $GITHUB_ENV
-          echo "MESSAGE=${{ github.event.inputs.topics || env.DEFAULT_MESSAGE }}" >> $GITHUB_ENV
-          echo "MESSAGE=${{ github.event.inputs.kafka || env.DEFAULT_MESSAGE }}" >> $GITHUB_ENV
+          echo "logLevel=${{ github.event.inputs.logLevel || env.DEFAULT_MESSAGE }}" >> $GITHUB_ENV
+          echo "tags=${{ github.event.inputs.tags || env.DEFAULT_MESSAGE }}" >> $GITHUB_ENV
+          echo "topics=${{ github.event.inputs.topics || env.DEFAULT_MESSAGE }}" >> $GITHUB_ENV
+          echo "kafka=${{ github.event.inputs.kafka || env.DEFAULT_MESSAGE }}" >> $GITHUB_ENV
 
       - name: Print some text
-        run: echo "$MESSAGE" # prints the environmental variable, MESSAGE
+        run: |
+          echo "$logLevel" # prints the environmental variable, MESSAGE
+          echo "$tags" # prints the environmental variable, MESSAGE
+          echo "$topics" # prints the environmental variable, MESSAGE
+          echo "$kafka" # prints the environmental variable, MESSAGE
 
       - name: Process it
         run: npm run start # prints the environmental variable, MESSAGE
