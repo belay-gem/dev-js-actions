@@ -10,6 +10,9 @@ try {
     console.log("${{secrets.MY_SECRET_VALUES}}");
     console.log(`${process.env.DEPLOY_ENV}`);
     console.log(`${process.env.FIRST_NAMES}`);
+    console.log(`${github.event.inputs.topics }`)
+    console.log(`${github.event.inputs.tags }`)
+    console.log(`${github.event.inputs.kafka }`)
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2)
     console.log(`The event payload: ${payload}`);
