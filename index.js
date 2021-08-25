@@ -8,7 +8,7 @@ try {
     const time = (new Date()).toTimeString();
     core.setOutput("time", time);
     console.log("${{secrets.MY_SECRET_VALUES}}");
-    console.log(`${process.env.MY_SECRET_VALUES}`);
+    console.log(`${process.env.DEPLOY_ENV}`);
     console.log(`${process.env.FIRST_NAME}`);
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2)
