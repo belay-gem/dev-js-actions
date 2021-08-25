@@ -14,4 +14,6 @@ jobs:
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.time }}"
     - name: print environment variables
-      run: env
+      run: env MY_SECRET_VALUES
+    - name: print specific envt variables
+      run: echo "${{MY_SECRET_VALUES}}"
