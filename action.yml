@@ -18,7 +18,6 @@ runs:
   using: "composite"
   steps:
     - run: |
-        bash -c "env | sort"
-        echo -------------
+        echo "inputs.allowed_features: ${{ inputs.allowed_features }}"
+        echo "env.INPUT_ALLOWED_FEATURES: ${{ env.INPUT_ALLOWED_FEATURES }}"
       shell: bash
-    - run: echo "::set-env name=INPUT_ALLOWED_FEATURES::${{ inputs.allowed_features }}"
