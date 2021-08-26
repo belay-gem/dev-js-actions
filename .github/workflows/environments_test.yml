@@ -13,7 +13,6 @@ jobs:
       - name: Run a scripts
         run |
           echo "I am running job in Dev environment"
-
   staging:
     runs-on: ubuntu-latest
     environment: staging
@@ -25,13 +24,12 @@ jobs:
         run |
           echo "I am running job in staging environment"
 
-    Prod:
-      runs-on: ubuntu-latest
-      environment: Prod
-      needs: staging
-
-      steps:
-        - uses: actions/checkout@v2
-        - name: Run a scripts
-          run |
-            echo "I am running job in prod environment"
+  Prod:
+    runs-on: ubuntu-latest
+    environment: Prod
+    needs: staging
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a scripts
+        run |
+          echo "I am running job in prod environment"
