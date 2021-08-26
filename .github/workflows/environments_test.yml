@@ -1,0 +1,37 @@
+name: Apply Environment Governence
+on:
+  workflow_dispatch: # adding the workflow_dispatch so it can be triggered manually
+
+
+jobs:
+  Dev:
+    runs-on: ubuntu-latest
+    environment: Dev
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a scripts
+        run |
+          echo "I am running job in Dev environment"
+
+  staging:
+    runs-on: ubuntu-latest
+    environment: staging
+    needs: Dev
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a scripts
+        run |
+          echo "I am running job in staging environment"
+
+    Prod:
+      runs-on: ubuntu-latest
+      environment: Prod
+      needs: staging
+
+      steps:
+        - uses: actions/checkout@v2
+        - name: Run a scripts
+          run |
+            echo "I am running job in prod environment"
