@@ -23,7 +23,6 @@ jobs:
       - name: Run a scripts
         run |
           echo "I am running job in staging environment"
-
   Prod:
     runs-on: ubuntu-latest
     environment: Prod
