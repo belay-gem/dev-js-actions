@@ -7,10 +7,19 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
+      - uses: actions/checkout@v2
+      - name: Decrypt
+        run: ./.github/scripts/decrypt_secret.sh
+        env:
+          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
       - id: step1
-        run: echo "::set-output name=test::hello"
+        run: |
+          DOC_USER_NAME=$(cat $HOME/secrets/sec_encryption.json | jq '.DOC_USER_NAME')
+          echo "::set-output name=test::$DOC_USER_NAME"
       - id: step2
-        run: echo "::set-output name=test::world"
+        run: |
+          AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.AWS_REGION')
+          echo "::set-output name=test::$AWS_REGION"
   job2:
     runs-on: ubuntu-latest
     needs: job1
