@@ -41,3 +41,4 @@ jobs:
           name: env_develpement
       - run: |
           cat .env.encryption
+          npm run start
