@@ -27,11 +27,11 @@ jobs:
           AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.AWS_REGION')
           echo "::set-output name=aws_region::$AWS_REGION"
           ENV_DATA=$(cat $HOME/secrets/sec_encryption.yml)
-          cat $HOME/secrets/sec_encryption.yml
+          cat $HOME/secrets/sec_encryption.yml > sec_encryption.yml
       - uses: actions/upload-artifact@v2
         with:
           name: env_develpement
-          path: $HOME/secrets/sec_encryption.yml
+          path: sec_encryption.yml
   job2:
     runs-on: ubuntu-latest
     needs: job1
