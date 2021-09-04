@@ -7,7 +7,7 @@ jobs:
       doc_user_name: ${{ steps.step1.outputs.doc_user_name }}
       aws_region: ${{ steps.step1.outputs.aws_region }}
       docker_password: ${{ steps.step1.outputs.docker_password }}
-      aws_region_1: ${{ steps.step2.outputs.aws_region }}
+      env_data: ${{ steps.step2.outputs.env_data }}
     steps:
       - uses: actions/checkout@v2
       - name: Decrypt
@@ -26,6 +26,8 @@ jobs:
         run: |
           AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.AWS_REGION')
           echo "::set-output name=aws_region::$AWS_REGION"
+          ENV_DATA=$(cat "$HOME/secrets/sec_encryption.yml")
+          echo "::set-output name=env_data::$ENV_DATA"
   job2:
     runs-on: ubuntu-latest
     needs: job1
@@ -33,3 +35,4 @@ jobs:
       - run: |
           echo ${{needs.job1.outputs.doc_user_name}} ${{needs.job1.outputs.aws_region}} ${{needs.job1.outputs.docker_password}}
           echo ${{needs.job1.outputs.aws_region_1}}
+          echo ${{needs.job1.outputs.env_data}}
