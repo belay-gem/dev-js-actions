@@ -42,4 +42,4 @@ jobs:
         with:
           name: env_develpement
       - run: |
-          cat "env_develpement"
+          cat sec_encryption.yml
