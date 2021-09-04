@@ -22,9 +22,12 @@ jobs:
           AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.DOCKER_PASSWORD')
           echo "::set-output name=docker_password::$AWS_REGION"
       - id: step2
+      - run: mkdir -p "$HOME/secrets"
         run: |
           AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.AWS_REGION')
           echo "::set-output name=aws_region::$AWS_REGION"
+          ENV_DATA=$(cat "$HOME/secrets/sec_encryption.yml")
+          echo $ENV_DATA > "$HOME/secrets/sec_encryption.yml"
       - uses: actions/upload-artifact@v2
         with:
           name: env_develpement
