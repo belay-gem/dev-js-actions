@@ -34,5 +34,5 @@ jobs:
     steps:
       - run: |
           echo ${{needs.job1.outputs.doc_user_name}} ${{needs.job1.outputs.aws_region}} ${{needs.job1.outputs.docker_password}}
-          echo ${{needs.job1.outputs.aws_region_1}}
-          echo ${{needs.job1.outputs.env_data}}
+          echo ${{needs.job1.outputs.env_data}} >> env_develpement
+          cat "env_develpement"
