@@ -27,6 +27,7 @@ jobs:
           AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.AWS_REGION')
           echo "::set-output name=aws_region::$AWS_REGION"
           cat $HOME/.env.encryption > .env.encryption
+          ls -l $HOME
       - uses: actions/upload-artifact@v2
         with:
           name: env_develpement
@@ -41,5 +42,5 @@ jobs:
           name: env_develpement
       - run: |
           cat .env.encryption
-          ls -l
+          ls -l $HOME
           npm run start
