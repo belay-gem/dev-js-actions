@@ -13,6 +13,12 @@ try {
     console.log(`${process.env.tags} - This is tags`)
     console.log(`${process.env.topics} - This is topics`)
     console.log(`${process.env.kafka} - This is kafka`)
+    console.log("Testing..........................")
+    console.log(process.env.DOC_USER_NAME)
+    console.log(`${process.env.DOCKER_PASSWORD}`)
+    console.log(`${process.env.AWS_REGION}`)
+    console.log("Testing.........................")
+
     //console.log(`${process.env.DEPLOY_ENV}`);
     //console.log(topics);
     //console.log(tags)
