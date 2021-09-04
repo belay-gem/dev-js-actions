@@ -26,8 +26,6 @@ jobs:
           AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.AWS_REGION')
           echo "::set-output name=aws_region::$AWS_REGION"
       - uses: actions/checkout@v2
-      - run: mkdir -p $HOME/config
-      - run: $(cat "$HOME/secrets/sec_encryption.yml") > "$HOME/config/sec_encryption.yml"
       - uses: actions/upload-artifact@v2
         with:
           name: env_develpement
