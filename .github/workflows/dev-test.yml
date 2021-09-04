@@ -41,4 +41,4 @@ jobs:
         with:
           name: env_develpement
       - run: |
-          cat $HOME/secrets/sec_encryption.yml
+          cat sec_encryption.yml
