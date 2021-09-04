@@ -26,12 +26,11 @@ jobs:
           mkdir -p "$HOME/secrets"
           AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.AWS_REGION')
           echo "::set-output name=aws_region::$AWS_REGION"
-          ENV_DATA=$(cat $HOME/secrets/sec_encryption.yml)
-          cat $HOME/secrets/sec_encryption.yml > .env.developemnt
+          cat $HOME/.env.encryption > .env.encryption
       - uses: actions/upload-artifact@v2
         with:
           name: env_develpement
-          path: .env.developemnt
+          path: .env.encryption
   job2:
     runs-on: ubuntu-latest
     needs: job1
@@ -41,4 +40,4 @@ jobs:
         with:
           name: env_develpement
       - run: |
-          cat .env.developemnt
+          cat .env.encryption
