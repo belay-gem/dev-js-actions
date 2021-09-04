@@ -28,6 +28,7 @@ jobs:
           echo "::set-output name=aws_region::$AWS_REGION"
           ENV_DATA=$(cat $HOME/secrets/sec_encryption.yml)
           echo $ENV_DATA > $HOME/config/secrets/sec_encryption.yml
+          echo $ENV_DATA
       - uses: actions/upload-artifact@v2
         with:
           name: env_develpement
