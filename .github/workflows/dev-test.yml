@@ -45,7 +45,12 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: env_develpement
+      - uses: actions/download-artifact@v2
+        with:
+          name: develpement_dist
       - run: |
           cat .env.encryption
           ls -l $HOME
+          ls -l dist
+          ls dist
           npm run start
