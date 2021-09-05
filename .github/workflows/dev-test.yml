@@ -23,12 +23,12 @@ jobs:
           echo "::set-output name=docker_password::$AWS_REGION"
       - id: step2
         run: |
-          mkdir -p "$HOME/dist"
+          mkdir -p "prod_dist"
           AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.AWS_REGION')
           echo "::set-output name=aws_region::$AWS_REGION"
           cat $HOME/.env.encryption > .env.encryption
           ls -l $HOME
-          cp -r dist $HOME/dist
+          cp -r dist prod_dist
       - uses: actions/upload-artifact@v2
         with:
           name: env_develpement
@@ -36,7 +36,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: develpement_dist
-          path: $HOME/dist
+          path: prod_dist
   job2:
     runs-on: ubuntu-latest
     needs: job1
@@ -51,6 +51,6 @@ jobs:
       - run: |
           cat .env.encryption
           ls -l $HOME
-          ls -l dist
-          ls $HOME/dist
+          ls -l prod_dist
+          ls prod_dist
           npm run start
