@@ -27,7 +27,7 @@ jobs:
           AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.AWS_REGION')
           echo "::set-output name=aws_region::$AWS_REGION"
           cat $HOME/.env.encryption > .env.encryption
-          cp -r dist > dist
+          cp -r dist dist
           ls -l $HOME
           ls -l dist
       - uses: actions/upload-artifact@v2
