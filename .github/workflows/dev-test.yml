@@ -47,9 +47,9 @@ jobs:
           name: env_develpement
       - uses: actions/download-artifact@v2
         with:
-          name: dist
+          name: develpement_dist
       - run: |
           cat .env.encryption
-          ls -l
+          ls -l dist
           echo "Checking........"
           npm run start
