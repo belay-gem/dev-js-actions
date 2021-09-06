@@ -35,7 +35,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: develpement_dist
-          path: prod_dist
+          path: dist
   job2:
     runs-on: ubuntu-latest
     needs: job1
@@ -46,7 +46,7 @@ jobs:
           name: env_develpement
       - uses: actions/download-artifact@v2
         with:
-          name: develpement_dist
+          name: dist
       - run: |
           cat .env.encryption
           ls -l
