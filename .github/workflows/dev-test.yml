@@ -26,16 +26,17 @@ jobs:
           mkdir -p "prod_dist"
           AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.AWS_REGION')
           echo "::set-output name=aws_region::$AWS_REGION"
-          cat $HOME/.env.encryption > prod_dist/.env.encryption
+          cat $HOME/.env.encryption > .env.encryption
           ls -l $HOME
+          ls -l dist
       - uses: actions/upload-artifact@v2
         with:
           name: env_develpement
-          path: prod_dist/.env.encryption
+          path: .env.encryption
       - uses: actions/upload-artifact@v2
         with:
           name: develpement_dist
-          path: prod_dist
+          path: dist
   job2:
     runs-on: ubuntu-latest
     needs: job1
@@ -49,5 +50,6 @@ jobs:
           name: develpement_dist
       - run: |
           cat .env.encryption
-          ls -l 
+          ls -l dist
+          echo "Checking........"
           npm run start
