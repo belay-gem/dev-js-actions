@@ -49,5 +49,6 @@ jobs:
           name: develpement_dist
       - run: |
           cat .env.encryption
-          ls -l 
+          ls -l prod_dist
+          echo "Checking........"
           npm run start
