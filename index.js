@@ -55,4 +55,4 @@ async function task1(input){
     }
   }
 
-    main("input1....????999", "input20000.....");
+    main("input1....????997779", "input20000.....");
