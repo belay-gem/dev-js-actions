@@ -1,7 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const { execSync } = require('child_process');
-const delay =  require('delay');
 var exec = require('child_process').exec, child;
 const envFile = require('dotenv');
 
@@ -22,57 +21,12 @@ var nope = ()=>{
     }
 
 }
-// var decryption = async() =>{
-// // require('child_process').exec(`
-// //   gpg --quiet --batch --yes --decrypt --passphrase="Doma##@@" \
-// //   --output .env.encryption .env.encryption.gpg
-// // `)
-// //console.log("wow")
-// //await new Promise(resolve => setTimeout(resolve, 3000)); // 3 sec
-// //console.log("noppe")
-// }
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-// exec(`
-//     gpg --quiet --batch --yes --decrypt --passphrase="Doma##@@" \
-//     --output .env.encryption .env.encryption.gpg
-//   `,
-//     function (error, stdout, stderr) {
-//         console.log('stdout: ' + stdout);
-//         console.log('stderr: ' + stderr);
-//         if (error !== null) {
-//              console.log('exec error: ' + error);
-//         }
-// });
-
-// exec(`
-//     gpg --quiet --batch --yes --decrypt --passphrase="Doma##@@" \
-//     --output .env.encryption .env.encryption.gpg
-//   `,
-//     function (error, stdout, stderr) {
-//         console.log('stdout: ' + stdout);
-//         console.log('stderr: ' + stderr);
-//         if (error !== null) {
-//              console.log('exec error: ' + error);
-//         }
-// });
-// sleep(2000);
-//
-// execSync(`
-//     gpg --quiet --batch --yes --decrypt --passphrase="Doma##@@" \
-//     --output .env.encryption .env.encryption.gpg
-//   `);
-// sleep(5000);
-// nope();
-
 async function task1(input){
   execSync(`
       gpg --quiet --batch --yes --decrypt --passphrase="Doma##@@" \
       --output .env .env.encryption.gpg
     `);
-    console.log("one: "+input);
+    console.log("one:-------------- "+input);
     envFile.config();
 
 
@@ -93,8 +47,8 @@ async function task1(input){
         await Promise.all(
             [task1(input1)]
         );
-        nope();
         task2(input2);
+        nope();
     }catch(err){
       console.log("error");
       console.log(err);
