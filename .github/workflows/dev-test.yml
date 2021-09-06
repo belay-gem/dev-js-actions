@@ -51,5 +51,6 @@ jobs:
       - run: |
           cat .env.encryption
           ls -l dist
-          echo "Checking........"
+          echo "Checking........ yes"
+          echo "testig workng..."
           npm run start
