@@ -56,7 +56,7 @@ jobs:
       #   with:
       #     name: env_production
       #     path: .env.prod.encryption
-      # - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
           name: development_dist
           path: dist
