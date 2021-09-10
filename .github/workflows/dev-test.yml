@@ -13,19 +13,19 @@ jobs:
       - name: Decrypt DEV
         run: |
           ps aux | grep gpg
-          ./.github/scripts/decrypt_secret.sh
+          ./.github/scripts/decrypt_dev_secret.sh
         env:
           DEV_KEY: ${{ secrets.DEV_KEY }}
-      # - name: Decrypt STAGING
-      #   run: |
-      #     ./.github/scripts/decrypt_secret.sh
-      #   env:
-      #     STAGING_KEY: ${{ secrets.STAGING_KEY }}
-      # - name: Decrypt PROD
-      #   run: |
-      #     ./.github/scripts/decrypt_secret.sh
-      #   env:
-      #     PROD_KEY: ${{ secrets.PROD_KEY }}
+      - name: Decrypt STAGING
+        run: |
+          ./.github/scripts/decrypt_staging_secret.sh
+        env:
+          STAGING_KEY: ${{ secrets.STAGING_KEY }}
+      - name: Decrypt PROD
+        run: |
+          ./.github/scripts/decrypt_prod_secret.sh
+        env:
+          PROD_KEY: ${{ secrets.PROD_KEY }}
       # - id: step1
       #   run: |
       #     # DOC_USER_NAME=$(cat $HOME/secrets/sec_encryption.json | jq '.DOC_USER_NAME')
@@ -48,14 +48,14 @@ jobs:
         with:
           name: env_development
           path: .env.dev.encryption
-      # - uses: actions/upload-artifact@v2
-      #   with:
-      #     name: env_staging
-      #     path: .env.staging.encryption
-      # - uses: actions/upload-artifact@v2
-      #   with:
-      #     name: env_production
-      #     path: .env.prod.encryption
+      - uses: actions/upload-artifact@v2
+        with:
+          name: env_staging
+          path: .env.staging.encryption
+      - uses: actions/upload-artifact@v2
+        with:
+          name: env_production
+          path: .env.prod.encryption
       - uses: actions/upload-artifact@v2
         with:
           name: development_dist
@@ -68,17 +68,19 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: env_development
-      # - uses: actions/download-artifact@v2
-      #   with:
-      #     name: env_staging
-      # - uses: actions/download-artifact@v2
-      #   with:
-      #     name: env_production
+      - uses: actions/download-artifact@v2
+        with:
+          name: env_staging
+      - uses: actions/download-artifact@v2
+        with:
+          name: env_production
       - uses: actions/download-artifact@v2
         with:
           name: development_dist
       - run: |
           cat .env.dev.encryption
+          cat .env.staging.encryption
+          cat .env.prod.encryption
           ls -l dist
           echo "Checking........ yes"
           echo "testig workng..."
