@@ -28,6 +28,7 @@ jobs:
           mkdir -p "prod_dist"
           # AWS_REGION=$(cat $HOME/secrets/sec_encryption.json | jq '.AWS_REGION')
           # echo "::set-output name=aws_region::$AWS_REGION"
+          gpg --version
           cat $HOME/.env.encryption > .env.encryption
           ls -l $HOME
       - uses: actions/upload-artifact@v2
