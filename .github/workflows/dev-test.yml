@@ -31,7 +31,6 @@ jobs:
           echo "::set-output name=aws_region::$AWS_REGION"
           cat $HOME/.env.encryption > .env.encryption
           ls -l $HOME
-          ls -l dist
       - uses: actions/upload-artifact@v2
         with:
           name: env_develpement
