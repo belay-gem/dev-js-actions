@@ -6,5 +6,5 @@ mkdir $HOME/secrets
 # --yes to assume "yes" for questions
 # gpg --quiet --batch --yes --decrypt --passphrase="$DEV_ENCRYPTION_KEY21" \
 # --output $HOME/secrets/sec_encryption.json sec_encryption.json.gpg
-gpg --pinentry loopback --quiet --batch --yes --decrypt --passphrase="$DEVELOP_KEY" \
+gpg --pinentry loopback --quiet --batch --yes --decrypt --passphrase="$DEVELOP_KEY2" \
 --output $HOME/.env.encryption .env.encryption.gpg

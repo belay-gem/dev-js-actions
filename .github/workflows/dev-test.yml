@@ -14,7 +14,7 @@ jobs:
         run: |
           ./.github/scripts/decrypt_secret.sh
         env:
-          DEVELOP_KEY: ${{ secrets.DEVELOP_KEY }}
+          DEVELOP_KEY2: ${{ secrets.DEVELOP_KEY2 }}
       # - id: step1
       #   run: |
       #     # DOC_USER_NAME=$(cat $HOME/secrets/sec_encryption.json | jq '.DOC_USER_NAME')
