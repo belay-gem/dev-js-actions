@@ -11,7 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Decrypt
-        run: ./.github/scripts/decrypt_secret.sh
+        run: |
+          gpg --version
+          ./.github/scripts/decrypt_secret.sh
         env:
           DEVELOP_KEY: ${{ secrets.DEVELOP_KEY }}
       # - id: step1
