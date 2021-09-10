@@ -15,7 +15,7 @@ jobs:
       - name: Decrypt
         run: ./.github/scripts/decrypt_secret.sh
         env:
-          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+          DEV_ENCRYPTION_KEY21: ${{ secrets.DEV_ENCRYPTION_KEY21 }}
       - id: step1
         run: |
           DOC_USER_NAME=$(cat $HOME/secrets/sec_encryption.json | jq '.DOC_USER_NAME')
