@@ -15,7 +15,7 @@ mkdir $HOME/secrets
 gpg --version
 gpg  --quiet --batch --yes --decrypt --passphrase="$DEV_KEY" \
 --output $HOME/.env.dev.encryption .env.dev.encryption.gpg
-gpg  --quiet --batch --yes --decrypt --passphrase="$STAGING_KEY" \
---output $HOME/.env.staging.encryption .env.staging.encryption.gpg
-gpg --quiet --batch --yes --decrypt --passphrase="$PROD_KEY" \
---output $HOME/.env.prod.encryption .env.prod.encryption.gpg
+# gpg  --quiet --batch --yes --decrypt --passphrase="$STAGING_KEY" \
+# --output $HOME/.env.staging.encryption .env.staging.encryption.gpg
+# gpg --quiet --batch --yes --decrypt --passphrase="$PROD_KEY" \
+# --output $HOME/.env.prod.encryption .env.prod.encryption.gpg
