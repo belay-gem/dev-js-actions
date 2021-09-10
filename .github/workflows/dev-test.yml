@@ -46,7 +46,7 @@ jobs:
           ls -l $HOME
       - uses: actions/upload-artifact@v2
         with:
-          name: env_develpement
+          name: env_development
           path: .env.dev.encryption
       # - uses: actions/upload-artifact@v2
       #   with:
