@@ -10,11 +10,21 @@ jobs:
     #   aws_region: ${{ steps.step2.outputs.aws_region }}
     steps:
       - uses: actions/checkout@v2
-      - name: Decrypt
+      - name: Decrypt DEV
         run: |
           ./.github/scripts/decrypt_secret.sh
         env:
-          DEVELOP_KEY2: ${{ secrets.DEVELOP_KEY2 }}
+          DEV_KEY: ${{ secrets.DEV_KEY }}
+      - name: Decrypt STAGING
+        run: |
+          ./.github/scripts/decrypt_secret.sh
+        env:
+          STAGING_KEY: ${{ secrets.STAGING_KEY }}
+      - name: Decrypt PROD
+        run: |
+          ./.github/scripts/decrypt_secret.sh
+        env:
+          PROD_KEY: ${{ secrets.PROD_KEY }}
       # - id: step1
       #   run: |
       #     # DOC_USER_NAME=$(cat $HOME/secrets/sec_encryption.json | jq '.DOC_USER_NAME')
