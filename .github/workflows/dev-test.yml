@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     steps:
-      - name: Testing envt variables
       - uses: actions/checkout@v2
+      - name: Testing envt variables
         env:
           MY_SECRET_VALUES: ${{ secrets.MY_SECRET_VALUES }}
         run: |
