@@ -4,7 +4,7 @@ on:
       - main
 jobs:
   job0:
-    - name: Testing envt variables
+  - name: Testing envt variables
     runs-on: ubuntu-latest
     environment: staging
     steps:
