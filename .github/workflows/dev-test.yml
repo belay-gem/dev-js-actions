@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Testing envt variables
         env:
-          MY_SECRET_VALUES: ${{ secrets.PROD_SECRET }}
+          PROD_SECRET: ${{ secrets.PROD_SECRET }}
         run: |
           echo "$PROD_SECRET"
   job1:
