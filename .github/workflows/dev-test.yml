@@ -12,7 +12,12 @@ jobs:
         env:
           NATO_SECRET: ${{ secrets.NATO_SECRET }}
         run: |
-          echo "$NATO_SECRET"
+          export NATO_SECRET="$NATO_SECRET"
+          printenv | NATO_SECRET > .env.doma
+      - uses: actions/checkout@v2
+        run: |
+          cat .env.doma
+
   job1:
     runs-on: ubuntu-latest
     # Map a step output to a job output
