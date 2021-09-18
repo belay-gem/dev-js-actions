@@ -21,7 +21,6 @@ jobs:
           EOF
       - name: Test File export
         run: |
-          cat .env.doma
           cat .env.dev
 
   job1:
