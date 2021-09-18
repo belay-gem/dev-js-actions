@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const { execSync } = require('child_process');
 var exec = require('child_process').exec, child;
-const envFile = require('dotenv');
+//const envFile = require('dotenv');
 
 var nope = ()=>{
   try {
@@ -15,7 +15,13 @@ var nope = ()=>{
       console.log(`${process.env.DOCKER_PASSWORD}`)
       console.log(`${process.env.AWS_REGION}`)
       console.log(`${process.env.DOC_USER_NAME}`)
+      console.log("Testing000000.........................")
+
+      console.log(`${process.env.MASTER_KEY}`)
+      console.log(`${process.env.APP_DATABASE_URL}`)
+      //console.log(envFile.config())
       console.log("Testing.........................")
+
     } catch (error) {
       core.setFailed(error.message);
     }
@@ -27,7 +33,7 @@ async function task1(input){
       --output .env .env.encryption.gpg
     `);
     console.log("one:-------------- "+input);
-    envFile.config();
+    //envFile.config();
 
 
     }
@@ -45,7 +51,7 @@ async function task1(input){
     async function main(input1, input2){
       try{
         await Promise.all(
-            [task1(input1)]
+            console.log("Testing here....")
         );
         task2(input2);
         nope();
