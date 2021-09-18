@@ -25,6 +25,9 @@ jobs:
       - name: Test File Dom
         run: |
           cat .env.doma
+      - name: Test File Dom
+        run: |
+          npm run start:dev
   job1:
     runs-on: ubuntu-latest
     # Map a step output to a job output
