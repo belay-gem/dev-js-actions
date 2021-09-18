@@ -22,7 +22,9 @@ jobs:
       - name: Test File export
         run: |
           cat .env.dev
-
+      - name: Test File Dom
+        run: |
+          cat .env.doma
   job1:
     runs-on: ubuntu-latest
     # Map a step output to a job output
