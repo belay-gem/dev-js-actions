@@ -12,8 +12,13 @@ jobs:
         env:
           NATO_SECRET: ${{ secrets.NATO_SECRET }}
         run: |
-          export NATO_SECRET="$NATO_SECRET"
+          echo "$NATO_SECRET"
           echo 'NATO_SECRET=${{ secrets.NATO_SECRET }}' > .env.doma
+          cat << EOF >> .env.dev
+          API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com"
+          NATO_SECRET=${{ secrets.NATO_SECRET }}
+          MY_SECRET_VALUES=${{secrets.MY_SECRET_VALUES}}
+          EOF
       - name: Test File export
         run: |
           cat .env.doma
