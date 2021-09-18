@@ -13,7 +13,7 @@ jobs:
           NATO_SECRET: ${{ secrets.NATO_SECRET }}
         run: |
           export NATO_SECRET="$NATO_SECRET"
-          echo 'NATO_SECRET="$NATO_SECRET"' > .env.doma
+          echo 'NATO_SECRET=${{ secrets.API_KEY }}' > .env.doma
       - name: Test File export
         run: |
           cat .env.doma
