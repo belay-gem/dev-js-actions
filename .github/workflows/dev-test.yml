@@ -9,8 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Testing envt variables
-        env:
-          NATO_SECRET: ${{ secrets.NATO_SECRET }}
         run: |
           echo "$NATO_SECRET"
           echo 'NATO_SECRET=${{ secrets.NATO_SECRET }}' > .env.doma
