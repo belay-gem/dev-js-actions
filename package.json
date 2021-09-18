@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm install && node index.js",
-    "start:dev": "node -r dotenv/config index.js dotenv_config_path=.env.doma"
+    "start:dev": "npm install && node -r dotenv/config index.js dotenv_config_path=.env.doma"
   },
   "repository": {
     "type": "git",
